@@ -17,7 +17,13 @@ func codeByType(par interface{}) ([]byte, error) {
 		encoded = codeToFloat(v)
 	case bool:
 		encoded = codeToBool(v)
-	case uint:
+	case uint8:
+		encoded = codeToUnsInt(uint64(v))
+	case uint16:
+		encoded = codeToUnsInt(uint64(v))
+	case uint32:
+		encoded = codeToUnsInt(uint64(v))
+	case uint64:
 		encoded = codeToUnsInt(uint64(v))
 	case []byte:
 		encoded = codeToBinary(v)

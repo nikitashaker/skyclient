@@ -39,6 +39,10 @@ func (c *Client) Query(query string, params ...interface{}) ([]interface{}, erro
 	return resp.DataSingle, nil
 }
 
+// func (c *Client) Query(query string, params ...interface{}) (*Response, error) {
+// 	return sendQuery(c.Conn, query, params...)
+// }
+
 func (c *Client) QueryParse(query string, out interface{}, params ...interface{}) error {
     resp, err := sendQuery(c.Conn, query, params...)
     if err != nil {

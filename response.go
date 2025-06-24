@@ -40,11 +40,12 @@ func getResponse(conn net.Conn) (*Response, error) {
 		return &Response{Type: 0x13, DataSingle: result.Value}, nil
 	case 0xFF:
 		return &Response{Type: 0xFF, ErrMsg: "Pipeline error"}, nil
-	default:
-		return nil, fmt.Errorf("Unknown response type: 0x%X", header[0])
+	// default:
+	// 	return nil, fmt.Errorf("Unknown response type: 0x%X", header[0])
 	}
 	// */
 	// return nil, nil
+	return &Response{Type: header[0]}, nil
 }
 
 func getRows(conn net.Conn) (*ValueResponse, error) {
